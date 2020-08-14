@@ -1,0 +1,28 @@
+.header {
+
+    width: 100%;
+
+    &__title {
+
+        font-size: 20px;
+        line-height: 25px;
+        color: #DE4E4B;
+        font-weight: normal;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        &--ball::before {
+
+            content: '';
+            display: inline-block;
+            background-image: url('~src/assets/img/ball.png');
+            background-size: contain;
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+            
+        }
+    }
+}

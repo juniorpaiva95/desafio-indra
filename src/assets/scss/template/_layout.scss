@@ -1,0 +1,17 @@
+.body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    background-image: url('~src/assets/img/body_bg.png');
+    min-height: calc(100vh - #{$footer-height});
+    height: auto;
+    padding: 30px;
+}
+.site-container {
+    flex: 1 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+    
+}

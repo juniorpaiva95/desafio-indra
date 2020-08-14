@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <!-- <pre>{{ pokemons | json }}</pre> -->
+
+        <div class="row">
+            <div class="col-md-4 col-xs-12" *ngFor="let pokemon of pokemons">
+                <app-card [title]="templ">
+                    <div style="text-align: center;">
+                        <img [src]="pokemon.sprite" alt="" srcset="">
+                    </div>
+                </app-card>
+                <ng-template #templ>
+                    #{{ pokemon.id }} - {{ pokemon.name | titlecase }}
+                </ng-template>
+            </div>
+        </div>
+        
+    </div>
+</div>

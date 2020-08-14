@@ -1,0 +1,25 @@
+.card {
+    margin-bottom: 1.25rem;
+    font-size: $font-size-base;
+    font-family: $font-family-sans-serif;
+    line-height: $line-height-base;
+    color: $body-color !important;
+    background: $card-bg;
+    border-radius: $card-border-radius;
+    min-height: 100px;
+
+    &--hoverable {
+        box-shadow: $card-hover-shadow;
+        border-color: $card-border-color;
+    }
+
+    &__header {
+        text-align: center;
+        border: solid 1px $card-border-color;
+        padding: 10px;
+    }
+
+    * {
+        color: $body-color;
+    }
+}

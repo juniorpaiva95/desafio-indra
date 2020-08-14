@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'reset';
+
+//Template
+@import 'template/header';
+@import 'template/footer';
+@import 'template/layout';
+@import 'template/button';
+
+//Componentes
+@import 'components/data-display/card';
+
+@import 'template/typorgraphy';

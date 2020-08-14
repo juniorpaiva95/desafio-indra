@@ -1,0 +1,19 @@
+.footer {
+    // padding: 0px;
+    // font-size: 90%;
+    background-color: #378B7D;
+    background: linear-gradient(to right, #639d25, #427768);
+    height: $footer-height;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+    &__logo {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
