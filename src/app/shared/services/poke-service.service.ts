@@ -30,7 +30,7 @@ export class PokeService {
         return this.http.get<Pokemon>(`${this.baseUrl}/${name}`);
     }
 
-    getPokemon(url?: string, name: string = '', offset: number = 0, limit: number = 9) : Observable<any> {
+    getPokemon(url?: string, name: string = '', offset: number = 0, limit: number = 21) : Observable<any> {
         let resolveUrl = url ? url: this.baseUrl;
         return this.http.get<Response>(`${resolveUrl}/${name}?limit=${limit}`)
             .pipe(

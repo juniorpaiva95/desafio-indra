@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
   meta: { count: number, next: string | null, previous: string | null };
   pokemons: Pokemon[] = [];
   pokemonsCopy: Pokemon[] = [];
+  availableSearchFields: string[] = ['name', 'weight'];
 
   constructor(private fb: FormBuilder, private pokeService: PokeService) {
     this.form = this.fb.group({
       'name': this.fb.control('', Validators.required),
-      'weight': this.fb.control('')
     })
   }
 
@@ -41,18 +41,24 @@ export class HomeComponent implements OnInit {
     if(!name) {
       return this.pokemons = this.pokemonsCopy;
     }
-    const searchText = (item) => {
-      for (let key in item) {
-        console.log(item, key)
-        if (item[key] == null) {
-          continue;
+    
+    const searchText = item => {
+      console.log(item);
+
+      for(let key in item) {
+        if(typeof item[key] === 'string' || typeof item[key] === 'number') {
+          // console.log(availableSearchFields, key)
+          if(this.availableSearchFields.includes(key)) {
+            // console.log("Campo pesquisavel");
+            if(item[key].toString().toUpperCase().indexOf(name.toString().toUpperCase()) !== -1) {
+              return true;
+            }
+          }
         }
-        // console.log(item, key);
-        if (item[key].toString().toUpperCase().indexOf(name.toString().toUpperCase()) !== -1) {
-          return true;
-        }
+        
       }
-    };
+    }
+
     this.pokemons = this.pokemons.filter((pokemon: Pokemon) => searchText(pokemon));
     // this.pokeService.getPokemonByName(name).subscribe((data: Pokemon) => {
     //   this.pokemons = [data];
