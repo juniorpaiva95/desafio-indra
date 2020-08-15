@@ -1,6 +1,6 @@
 @import 'variables';
 @import 'reset';
-
+@import 'mixins';
 //Template
 @import 'template/header';
 @import 'template/footer';
@@ -9,5 +9,6 @@
 
 //Componentes
 @import 'components/data-display/card';
+@import 'components/data-display/tag';
 
 @import 'template/typorgraphy';

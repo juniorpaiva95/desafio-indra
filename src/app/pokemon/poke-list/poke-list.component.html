@@ -1,6 +1,17 @@
 <div class="row">
     <div class="filters col-md-8 offset-md-2">
-        <pre>{{ form.value | json }}</pre>
+        <!-- <pre>{{ availableSearchFields | json }}</pre> -->
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="">Marque as opções para filtrar</label>
+                <select class="ant-select form-control" multiple [(ngModel)]="availableSearchFields">
+                    <option value="weight">Peso</option>
+                    <option value="name">Nome</option>
+                    <option value="base_experience">Experiência</option>
+                </select>
+            </div>
+        </div>
+
         <form [formGroup]="form" (submit)="search()">
             <div class="row">
                 <div class="form-group col-md-12">
@@ -20,24 +31,28 @@
 </div>
 <div class="row">
     <div class="col-md-8 offset-md-2">
-        <!-- <pre>{{ pokemons | json }}</pre> -->
 
         <div class="row">
-            <div class="col-md-4 col-xs-12" *ngFor="let pokemon of pokemons">
+            <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let pokemon of pokemons">
                 <div class="" (click)="navigateToDetail(pokemon)">
                     <app-card [title]="templ">
                         <div style="text-align: center;">
                             <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+                            <ul style="list-style: none; padding: 0;">
+                                <li>Peso: {{ pokemon.weight }}</li>
+                                <li>Altura: {{ pokemon.height }}</li>
+                                <li>Exp.: {{ pokemon.base_experience }}</li>
+                            </ul>
                         </div>
                     </app-card>
                     <ng-template #templ>
-                        <h5>#{{ pokemon.id }} - {{ pokemon.name | titlecase }}</h5>
+                        <h5 class="text-center">#{{ pokemon.id }} - {{ pokemon.name | titlecase }}</h5>
                     </ng-template>
                 </div>
             </div>
         </div>
 
-        <div class="row" *ngIf="meta?.next">
+        <div class="row" *ngIf="meta?.next" style="margin-top: 20px;">
             <div class="col-md-12 text-center">
                 <button class="btn btn-primary clearfix" (click)="handlerShowMore($event)">
                     Mostrar mais...

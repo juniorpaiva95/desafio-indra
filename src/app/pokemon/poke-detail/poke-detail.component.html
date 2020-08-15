@@ -1,0 +1,72 @@
+<div class="site-container" *ngIf="pokemon">
+    <div class="row pokemon pokemon__detail">
+        <div class="col-md-12 text-right">
+            <button class="btn btn-primary" (click)="goBack()">Voltar <i class="fa fa-arrow-left"></i></button>
+        </div>
+        
+        <div class="col-md-6 col-xs-12">
+            <div class="row">
+                <div class="pokemon__detail__img col-md-3 col-xs-12">
+                    <img [src]="pokemon.sprites.front_default" alt="Pokemon front">
+                </div>
+                <div class="pokemon__detail__info col-md-9 col-xs-12">
+                    <h4 style="color: black;" class="text-center">
+                        {{ pokemon.name | titlecase }}
+                    </h4>
+                    <div class="types">
+                        <ul>
+                            <li *ngFor="let item of pokemon.types">
+                                <div [ngSwitch]="item.type.name">
+                                    <span class="tag tag-red" *ngSwitchCase="'fire'">{{ item.type.name }}</span>
+                                    <span class="tag tag-purple" *ngSwitchCase="'flying'">{{ item.type.name }}</span>
+                                    <span *ngSwitchDefault class="tag tag-default">{{ item.type.name }}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="pokemon__generalInfo">
+                <h5 class="title-info">Informações Gerais</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Altura</th>
+                            <th>Peso</th>
+                            <th>Experiência Base</th>
+                            <!-- <th>Genêro</th> -->
+                        </tr>    
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ pokemon.id }}</td>
+                            <td>{{ pokemon.height }}</td>
+                            <td>{{ pokemon.weight }}</td>
+                            <td>{{ pokemon.base_experience }}</td>
+                            <!-- <td></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xs-12">
+            <h5 class="title-info"><i class="fa fa-bar-chart-o"></i> {{ pokemon.name | titlecase }}'s Base Status</h5>
+
+            <div class="pokemon__status">
+                <div class="pokemon__status--info">
+                    
+                    
+                    
+                </div>
+                <div class="pokemon__status--chart"></div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12"></div>
+    </div>
+    
+</div>

@@ -1,0 +1,46 @@
+.tag {
+    font-family: $font-family-base;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    line-height: $tag-line-height;
+    height: $tag-height;
+    padding: 0 10px;
+    border-radius: $border-radius-round;
+    border: 1px solid $border-color;
+    background: $tag-bg;
+    font-size: 12px;
+    color : $body-color;
+}
+
+@each $tone in $tone-loop {
+
+    .tag-#{nth($tone, 1)} {
+        color: #{nth($tone, 2)};
+        background: #{nth($tone, 3)};
+        border-color: transparent;
+        font-weight: 500;
+    }
+}    
+
+.m-b-0 {
+
+    .tag {
+        margin-bottom: 0px;
+    }    
+}
+
+.m-r-0 {
+
+    .tag {
+        margin-right: 0px;
+    }    
+}
+
+
+
+
+
+
+
+
+
