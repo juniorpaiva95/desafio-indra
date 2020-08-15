@@ -1,12 +1,16 @@
 <div class="filters col-md-8 offset-md-2">
-    <form>
+    <pre>{{ form.value | json }}</pre>
+    <form [formGroup]="form" (submit)="search()">
         <div class="form-group">
             <label for="">Nome</label>
-            <input type="text" class="form-control" placeholder="Nome do pokémon" />
+            <input type="text" class="form-control" placeholder="Nome do pokémon" formControlName="name" />
         </div>
 
-        <button class="btn btn-primary">Pesquisar</button>
+        <div class="text-right">
+            <button class="btn btn-primary" ngbTooltip="Clique para pesquisar">Pesquisar <i class="fa fa-search"></i></button>
+        </div>
+        
     </form>
 </div>
 
-<app-poke-list></app-poke-list>
+<app-poke-list [pokemons]="pokemons"></app-poke-list>

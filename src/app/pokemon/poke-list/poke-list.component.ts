@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PokeService } from 'src/app/shared/services/poke-service.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-poke-list',
@@ -8,16 +7,10 @@ import { PokeService } from 'src/app/shared/services/poke-service.service';
 })
 export class PokeListComponent implements OnInit {
 
-  meta: { count: number, next: string | null, previous: string | null };
-  pokemons: any[] = [];
+  @Input() pokemons: Array<any>;
 
-  constructor(private pokeService: PokeService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.pokeService.getPokemon().subscribe(({ count, next, previous, results }: any) => {
-      this.meta = { count, next, previous };
-      this.pokemons = results;
-    });
-  }
+  ngOnInit() { }
 
 }

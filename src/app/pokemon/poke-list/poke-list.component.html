@@ -6,12 +6,18 @@
             <div class="col-md-4 col-xs-12" *ngFor="let pokemon of pokemons">
                 <app-card [title]="templ">
                     <div style="text-align: center;">
-                        <img [src]="pokemon.sprite" alt="" srcset="">
+                        <img [src]="pokemon.sprite" [alt]="pokemon.name">
                     </div>
                 </app-card>
                 <ng-template #templ>
-                    #{{ pokemon.id }} - {{ pokemon.name | titlecase }}
+                    <h5>#{{ pokemon.id }} - {{ pokemon.name | titlecase }}</h5>
                 </ng-template>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-primary clearfix">Mostrar mais <i class="fa fa-search"></i></button>
             </div>
         </div>
         

@@ -1,16 +1,20 @@
 .card {
     margin-bottom: 1.25rem;
-    font-size: $font-size-base;
+    font-size: $font-size-lg;
     font-family: $font-family-sans-serif;
     line-height: $line-height-base;
     color: $body-color !important;
     background: $card-bg;
     border-radius: $card-border-radius;
     min-height: 100px;
+    // max-width: 400px;
+    box-shadow: $card-hover-shadow;
+    border-color: $card-border-color;
+    cursor: pointer;
 
-    &--hoverable {
-        box-shadow: $card-hover-shadow;
-        border-color: $card-border-color;
+    &--hoverable:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s ease;
     }
 
     &__header {

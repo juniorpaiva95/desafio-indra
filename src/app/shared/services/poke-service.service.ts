@@ -15,14 +15,14 @@ interface Response {
     providedIn: 'root'
 })
 export class PokeService {
-    private baseUrl: string = 'https://pokeapi.co/api/v2/pokemon/';
+    private baseUrl: string = 'https://pokeapi.co/api/v2/pokemon';
     private baseSpriteUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
     constructor(private http: HttpClient) {
 
     }
 
-    getPokemon(offset: number = 0, limit: number = 9) : Observable<any> {
-        return this.http.get<Response>(`${this.baseUrl}?offset=${offset}&limit=${limit}`)
+    getPokemon(name: string = '', offset: number = 0, limit: number = 9) : Observable<any> {
+        return this.http.get<Response>(`${this.baseUrl}/${name}?offset=${offset}&limit=${limit}`)
             .pipe(
                 map(data => {
                     let formatted = data.results.map((pokemon, idx) => {
