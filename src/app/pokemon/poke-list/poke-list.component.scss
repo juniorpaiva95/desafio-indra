@@ -1,7 +1,12 @@
 ::ng-deep {
     app-poke-list {
-        color: #fff;
+        // color: #fff;
         padding: 20px;
+        .filters {
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
     }
     
 }
