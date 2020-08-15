@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { PokeList } from '../interfaces/poke-list.interface';
+import { Pokemon } from '../interfaces/pokemon.interface';
 
 interface Response {
     count: number;
     next: string | null;
     previous: string | null;
-    results: Array<any>;
+    results: Array<PokeList>;
 }
 
 @Injectable({
@@ -20,23 +22,33 @@ export class PokeService {
 
     }
 
-    getPokemon(name: string = '', offset: number = 0, limit: number = 9) : Observable<any> {
-        return this.http.get<Response>(`${this.baseUrl}/${name}?offset=${offset}&limit=${limit}`)
+    // resolveUrl(): string {
+    //     return ``;
+    // }
+
+    getPokemonByName(name: string): Observable<Pokemon> {
+        return this.http.get<Pokemon>(`${this.baseUrl}/${name}`);
+    }
+
+    getPokemon(url?: string, name: string = '', offset: number = 0, limit: number = 9) : Observable<any> {
+        let resolveUrl = url ? url: this.baseUrl;
+        return this.http.get<Response>(`${resolveUrl}/${name}?limit=${limit}`)
             .pipe(
-                map(data => {
-                    let formatted = data.results.map((pokemon, idx) => {
-                        const id: number = idx + offset + 1;
-                        
-                        return {
-                            name: pokemon.name,
-                            sprite: `${this.baseSpriteUrl}${id}.png`,
-                            id
-                        }
-                    })
-                    
-                    data.results = formatted;
-                    return data;
-                })
+                map((response: Response) => {
+                    let observables = [];
+                    response.results.map((pokemon: PokeList) => observables.push(this.http.get(pokemon.url)));
+                    return { observables: observables, meta: response };
+                }),
+                mergeMap(({ observables, meta }) => 
+                    forkJoin(observables)
+                    .pipe(
+                        map((result) => {
+                            let { results, ...rest } = meta;
+                            
+                            return { data: result, meta: rest };
+                        })
+                    )
+                ),
             )
     }
 }

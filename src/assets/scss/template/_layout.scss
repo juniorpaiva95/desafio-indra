@@ -15,3 +15,14 @@ main {
     position: relative;
     
 }
+
+.back-to-top {
+    position: fixed;
+    bottom: calc(#{$footer-height} + 10px);
+    right: 10px;
+    z-index: 999;
+    opacity: 0.7;
+    &:hover {
+        opacity: 1;
+    }
+}

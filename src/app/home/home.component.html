@@ -1,16 +1,20 @@
 <div class="filters col-md-8 offset-md-2">
     <pre>{{ form.value | json }}</pre>
     <form [formGroup]="form" (submit)="search()">
-        <div class="form-group">
-            <label for="">Nome</label>
-            <input type="text" class="form-control" placeholder="Nome do pokémon" formControlName="name" />
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="">Pesquisa</label>
+                <input type="text" class="form-control" placeholder="Pesquisa Global" formControlName="name" />
+            </div>
         </div>
-
-        <div class="text-right">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span>Obs: Pesquisa em memória</span>
             <button class="btn btn-primary" ngbTooltip="Clique para pesquisar">Pesquisar <i class="fa fa-search"></i></button>
         </div>
         
     </form>
 </div>
 
-<app-poke-list [pokemons]="pokemons"></app-poke-list>
+<app-poke-list [pokemons]="pokemons" [meta]="meta" (showMore)="loadData($event)"></app-poke-list>
+
