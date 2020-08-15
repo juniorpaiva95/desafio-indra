@@ -5,6 +5,7 @@ import { PokemonRoutingModule } from './pokemon-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PokeDetailComponent } from './poke-detail/poke-detail.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -18,7 +19,8 @@ import { PokeDetailComponent } from './poke-detail/poke-detail.component';
     FormsModule,
     ReactiveFormsModule,
     PokemonRoutingModule,
-    SharedModule
+    SharedModule,
+    ChartsModule
   ],
   exports: [
     PokeListComponent

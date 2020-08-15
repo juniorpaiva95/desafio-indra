@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     SharedModule,
     NgbModule,
-    NgbTooltipModule
+    NgbTooltipModule,
   ],
   providers: [
     PokeService

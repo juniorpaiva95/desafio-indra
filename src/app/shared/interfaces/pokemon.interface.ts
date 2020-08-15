@@ -6,9 +6,15 @@ export interface Pokemon {
     height: number;
     base_experience: number;
     types: Type[];
+    stats: Stat[];
 }
 
 export interface Type {
     slot: number;
     type: { name: string, url: string };
+}
+export interface Stat {
+    base_stat: number;
+    effort: number;
+    stat: { name: string, url: string };
 }

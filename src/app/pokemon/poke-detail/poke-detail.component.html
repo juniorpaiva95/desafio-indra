@@ -1,72 +1,116 @@
-<div class="site-container" *ngIf="pokemon">
+<!-- <canvas #myCanvas>{{ chart }}</canvas>
+<div #foo></div> -->
+<div class="site-container">
     <div class="row pokemon pokemon__detail">
         <div class="col-md-12 text-right">
             <button class="btn btn-primary" (click)="goBack()">Voltar <i class="fa fa-arrow-left"></i></button>
         </div>
-        
+
         <div class="col-md-6 col-xs-12">
             <div class="row">
                 <div class="pokemon__detail__img col-md-3 col-xs-12">
-                    <img [src]="pokemon.sprites.front_default" alt="Pokemon front">
+                    <img [src]="pokemon?.sprites.front_default" alt="Pokemon front">
                 </div>
                 <div class="pokemon__detail__info col-md-9 col-xs-12">
-                    <h4 style="color: black;" class="text-center">
-                        {{ pokemon.name | titlecase }}
+                    <h4 style="color: black;" class="text-left">
+                        {{ pokemon?.name | titlecase }}
                     </h4>
                     <div class="types">
-                        <ul>
-                            <li *ngFor="let item of pokemon.types">
+                        <ul style="list-style: none; padding: 0;">
+                            <li *ngFor="let item of pokemon?.types">
                                 <div [ngSwitch]="item.type.name">
                                     <span class="tag tag-red" *ngSwitchCase="'fire'">{{ item.type.name }}</span>
                                     <span class="tag tag-purple" *ngSwitchCase="'flying'">{{ item.type.name }}</span>
+                                    <span class="tag tag-geekblue" *ngSwitchCase="'water'">{{ item.type.name }}</span>
                                     <span *ngSwitchDefault class="tag tag-default">{{ item.type.name }}</span>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="title-info"><i class="fa fa-bar-chart-o"></i> {{ pokemon?.name | titlecase }}'s Base Status</h5>
+        
+                    <div class="pokemon__status">
+                        <!-- <div class="pokemon__status--info">
+        
+        
+        
+                        </div> -->
+                        <div class="pokemon__status--chart">
+                            <div *ngIf="chartLoaded">
+                                <canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions"
+                                    [labels]="radarChartLabels" [chartType]="radarChartType">
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-xs-12">
             <div class="pokemon__generalInfo">
-                <h5 class="title-info">Informações Gerais</h5>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Altura</th>
-                            <th>Peso</th>
-                            <th>Experiência Base</th>
-                            <!-- <th>Genêro</th> -->
-                        </tr>    
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ pokemon.id }}</td>
-                            <td>{{ pokemon.height }}</td>
-                            <td>{{ pokemon.weight }}</td>
-                            <td>{{ pokemon.base_experience }}</td>
-                            <!-- <td></td> -->
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-xs-12">
-            <h5 class="title-info"><i class="fa fa-bar-chart-o"></i> {{ pokemon.name | titlecase }}'s Base Status</h5>
-
-            <div class="pokemon__status">
-                <div class="pokemon__status--info">
-                    
-                    
-                    
+                <div id="stats-basic_stats">
+                    <h5 class="title-info">Informações Gerais</h5>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div id="stats-pokeHappy">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body p-3 text-center">
+                                            <div class="h1 m-0">70</div>
+                                            <div class="text-muted mb-4">Base Happiness</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="stats-pokeHeight" class="shiny-html-output shiny-bound-output">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body p-3 text-center">
+                                            <div class="h1 m-0">{{ pokemon?.height }}</div>
+                                            <div class="text-muted mb-4">Altura (cm)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="stats-pokeWeight" class="shiny-html-output shiny-bound-output">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body p-3 text-center">
+                                            <div class="h1 m-0">{{ pokemon?.weight }}</div>
+                                            <div class="text-muted mb-4">Peso (Kg)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div id="stats-baseXp" class="shiny-html-output shiny-bound-output">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body p-3 text-center">
+                                            <div class="h1 m-0">{{ pokemon?.base_experience }}</div>
+                                            <div class="text-muted mb-4">Base Xp</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="pokemon__status--chart"></div>
+
             </div>
         </div>
-        <div class="col-md-6 col-xs-12"></div>
     </div>
-    
+
 </div>
