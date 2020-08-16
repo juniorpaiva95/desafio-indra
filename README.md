@@ -2,26 +2,41 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
 
-## Development server
+## Conteúdo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* [Tecnologias](#tecnologias)
+* [Executando o projeto](#executando-o-projeto)
+* [Melhorias e Desafios](#melhorias-e-desafios)
+* [Changelog](#changelog)
 
-## Code scaffolding
+### Tecnologias
+* [Angular](https://v8.angular.io/docs)
+* [Ng2-Charts](https://valor-software.com/ng2-charts/)
+* [Font Awesome](https://fontawesome.com)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Executando o projeto
 
-## Build
+1. Clone o repositório
+```sh
+git clone https://github.com/juniorpaiva95/desafio-indra.git
+```
+2. Instale as dependências NPM
+```sh
+npm install
+```
+3. Execute o script para startar o projeto
+```sh
+npm run start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Melhorias e Desafios
+Alguns itens que poderia ser feito para melhorar:
+*  Implementação de loading para melhorar a experiência do usuário
+*  Melhoria na tela de detalhe do pokemon e posicionamento dos elementos.
+*  Implementação de scroll infinito para melhorar a experiência do usuário, uma vez que evita que o usuário tenha que clicar mais vezes.
+*  Customização de estratégia do router provider do angular para permitir o reaproveitamento de estado do componente de listagem com finalidade de evitar que o componente seja desmontado e os dados sejam perdidos, evitando mais requisições no back-end.
+*  Testes e2e utilizando o protractor
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Changelog
+Changelog [here](./CHANGELOG.md).
