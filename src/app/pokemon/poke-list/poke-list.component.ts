@@ -20,14 +20,10 @@ export class PokeListComponent implements OnInit {
 
   @HostListener('window:scroll')
   checkScroll() {
-      
-    // window의 scroll top
-    // Both window.pageYOffset and document.documentElement.scrollTop returns the same result in all the cases. window.pageYOffset is not supported below IE 9.
-
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     console.debug('[scroll]', scrollPosition);
-    
+
     if (scrollPosition >= 100) {
       this.btnTopShow = true;
     } else {
@@ -41,7 +37,7 @@ export class PokeListComponent implements OnInit {
     })
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.loadData();
   }
 
@@ -54,10 +50,10 @@ export class PokeListComponent implements OnInit {
   }
 
   gotoTop() {
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
   }
 
@@ -74,12 +70,12 @@ export class PokeListComponent implements OnInit {
     const { name } = this.form.value;
     // Reset state initial
     this.pokemons = this.pokemonsCopy;
-    
+
     const searchText = item => {
-      for(let key in item) {
-        if(typeof item[key] === 'string' || typeof item[key] === 'number') {
-          if(this.availableSearchFields.includes(key)) {
-            if(item[key].toString().toUpperCase().indexOf(name.toString().toUpperCase()) !== -1) {
+      for (let key in item) {
+        if (typeof item[key] === 'string' || typeof item[key] === 'number') {
+          if (this.availableSearchFields.includes(key)) {
+            if (item[key].toString().toUpperCase().indexOf(name.toString().toUpperCase()) !== -1) {
               return true;
             }
           }

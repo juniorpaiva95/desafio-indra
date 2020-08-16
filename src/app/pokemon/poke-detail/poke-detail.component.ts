@@ -13,8 +13,8 @@ import { finalize, delay } from 'rxjs/operators';
 })
 export class PokeDetailComponent implements OnInit, AfterViewInit {
 
-  id: string;
-  pokemon: Pokemon;
+  public id: string;
+  public pokemon: Pokemon;
   public radarChartOptions: ChartOptions = {
     responsive: true,
     legend: {
@@ -40,7 +40,8 @@ export class PokeDetailComponent implements OnInit, AfterViewInit {
   public radarChartType: ChartType = 'radar';
   chartLoaded: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private pokeService: PokeService, private router: Router, private elementRef: ElementRef) { }
+  constructor(private activatedRoute: ActivatedRoute, private pokeService: PokeService, private router: Router) { }
+  
   ngOnInit() {}
 
   ngAfterViewInit() {

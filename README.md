@@ -37,6 +37,13 @@ Alguns itens que poderia ser feito para melhorar:
 *  Customização de estratégia do router provider do angular para permitir o reaproveitamento de estado do componente de listagem com finalidade de evitar que o componente seja desmontado e os dados sejam perdidos, evitando mais requisições no back-end.
 *  Testes e2e utilizando o protractor
 
+## Raciocinio de desenvolvimento
+
+*  Utilização de scss para pré-processamento de estilos, mixins e variables.
+*  Utilização de lazy loading module para carregamento tardio.
+*  Utilização de changelog e versionamento
+*  Utilização de destructuring, rxjs operators
+
 
 ## Changelog
 Changelog [here](./CHANGELOG.md).

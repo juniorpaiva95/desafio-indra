@@ -7,8 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 import { PokeDetailComponent } from './poke-detail/poke-detail.component';
 import { ChartsModule } from 'ng2-charts';
 
-
-
 @NgModule({
   declarations: [
     PokeListComponent,
