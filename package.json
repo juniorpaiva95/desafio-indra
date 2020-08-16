@@ -10,8 +10,8 @@
     "e2e": "ng e2e",
     "release": "standard-version",
     "release:patch": "standard-version --release-as patch",
-    "release:minor": "startard-version --release-as minor",
-    "release:major": "startard-version --release-as major"
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
   },
   "husky": {
     "hooks": {
