@@ -4,7 +4,7 @@ import { Component, Input } from "@angular/core";
     selector: 'ic-header',
     template: `
         <header class="header header--default">
-            <h1 class="header__title header__title--ball">{{ title }}</h1>
+            <a [routerLink]="['/']"><h1 class="header__title header__title--ball">{{ title }}</h1></a>
         </header>
     `
 })
