@@ -36,6 +36,9 @@ Alguns itens que poderia ser feito para melhorar:
 *  Implementação de scroll infinito para melhorar a experiência do usuário, uma vez que evita que o usuário tenha que clicar mais vezes.
 *  Customização de estratégia do router provider do angular para permitir o reaproveitamento de estado do componente de listagem com finalidade de evitar que o componente seja desmontado e os dados sejam perdidos, evitando mais requisições no back-end.
 *  Testes e2e utilizando o protractor
+*  Há um bom tempo que não trabalho com bootstrap, e agora percebo que houve uma grande evolução nessas novas versões com relação a utilitários (Classes de apoio para construir layouts com menos escrita de css puro). 
+*  Demonstrado uma maior variedade de conhecimento no angular, com relação a comunicação entre componentes e com relação a própria api do angular e lifecycle dos componentes. Utilizando @Input, @Output, @ViewChild e outros decorators.
+*  Demonstrado de alguma forma melhor o uso da api de formulários com Reactive Forms. Não vi grande utilidade no desafio, tendo em vista que se trata apenas de um consumo de api. E não um sistema de informação por exemplo com cruds e etc.
 
 ## Raciocinio de desenvolvimento
 
