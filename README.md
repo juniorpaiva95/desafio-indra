@@ -13,6 +13,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * [Angular](https://v8.angular.io/docs)
 * [Ng2-Charts](https://valor-software.com/ng2-charts/)
 * [Font Awesome](https://fontawesome.com)
+* [Bootstrap](https://getbootstrap.com/)
+* [Sass](https://sass-lang.com/)
 
 ### Executando o projeto
 
